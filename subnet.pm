@@ -16,12 +16,12 @@ print q(
 |---01-1010---1-1-1--1001-1010-|
 |---00-10-----1001--1001-1010--|
 |-01---10-----1001--1001-1010--|
-[-->perl subNet.pl site.com <--]
+[-->perl subnet.pm site.com <--]
 );
 print color('reset');
 
 print colored ("->code by raku team[subnet v0.1]\n",'white on_green');
-print colored ("-> perl v5.38:perl subNet.pl site.com]\n",'white on_green');
+print colored ("-> perl v5.38:perl subnet.pm site.com]\n",'white on_green');
 
 print colored "--->[$datatime]--->\n",'white on_green';
 sub find_subdomain{
