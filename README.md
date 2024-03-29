@@ -3,5 +3,6 @@
 apt install perl
 git clone https://github.com/Cybercandiru/Subnet/tree/main
 <br>
-بەکارهێنان
+بەکارخستن
+
 perl subnet.pm hackerone.com
