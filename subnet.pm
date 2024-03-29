@@ -20,37 +20,37 @@ print q(
 );
 print color('reset');
 
-print colored ("->code by raku team[subnet v0.1]\n",'white on_green');
+print colored ("->[subnet v0.1]\n",'white on_red');
+
 
 sub find_subdomain{
-	my ($domain) = @_;
-	my $ua = LWP::UserAgent->new;
-	$ua->agent('Mozilla/5.0');
-	my $url = "https://crt.sh/?q=%.$domain&output=json";
-	my $response = $ua->get($url);
-	die "error cont404:\n" unless $response->is_success; # $@
-	my $content = $response->decoded_content;
-	my @subdomains;
-	my $json = decode_json($content);
-	foreach my $entry(@$json){
-		my $name_value = $entry->{'name_value'};
-		push @subdomains,$name_value;
-	}
-	return @subdomains;
+        my ($domain) = @_;
+        my $ua = LWP::UserAgent->new;
+        $ua->agent('Mozilla/5.0');
+        my $url = "https://crt.sh/?q=%.$domain&output=json";
+        my $response = $ua->get($url);
+        die "error cont404:\n" unless $response->is_success; # $@
+        my $content = $response->decoded_content;
+        my @subdomains;
+        my $json = decode_json($content);
+        foreach my $entry(@$json){
+                my $name_value = $entry->{'name_value'};
+                push @subdomains,$name_value;
+        }
+        return @subdomains;
 }
-
 my $domain = shift||die "perl subNet.pl site.com tm.rakugo";
 chomp $domain;
 my @subdomains = find_subdomain($domain);
 if(@subdomains){
-	
-	print "[found for :$domain]\n";
 
-	foreach my $subdomain (@subdomains){
-	print "$subdomain\n";
-	}
+        print "[found for :$domain]\n";
+
+        foreach my $subdomain (@subdomains){
+        print "$subdomain\n";
+        }
 }else{
-	print "subdomain no found for $domain\n";
+        print "subdomain no found for $domain\n";
 }
-print colored "--->[finsh]--->\n",'white on_red';
+#print colored "--->[finsh]--->\n",'white on_red';
 1;
