@@ -41,7 +41,7 @@ sub find_subdomain{
 	return @subdomains;
 }
 print "Web find subdomain:";
-my $domain = <STDIN> || die "perl subNet.pl site.com tm.rakugo";
+my $domain = <STDIN> || shift||die "perl subNet.pl site.com tm.rakugo";
 chomp $domain;
 my @subdomains = find_subdomain($domain);
 if(@subdomains){
