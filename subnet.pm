@@ -21,9 +21,7 @@ print q(
 print color('reset');
 
 print colored ("->code by raku team[subnet v0.1]\n",'white on_green');
-print colored ("-> perl v5.38:perl subnet.pm site.com]\n",'white on_green');
 
-print colored "--->[$datatime]--->\n",'white on_green';
 sub find_subdomain{
 	my ($domain) = @_;
 	my $ua = LWP::UserAgent->new;
@@ -40,8 +38,8 @@ sub find_subdomain{
 	}
 	return @subdomains;
 }
-print "Web find subdomain:";
-my $domain = <STDIN> || shift||die "perl subNet.pl site.com tm.rakugo";
+
+my $domain = shift||die "perl subNet.pl site.com tm.rakugo";
 chomp $domain;
 my @subdomains = find_subdomain($domain);
 if(@subdomains){
