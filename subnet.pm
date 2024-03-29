@@ -39,7 +39,7 @@ sub find_subdomain{
         }
         return @subdomains;
 }
-my $domain = shift||die "perl subNet.pl site.com tm.rakugo";
+my $domain = shift||die "perl subnet.pl site.com";
 chomp $domain;
 my @subdomains = find_subdomain($domain);
 if(@subdomains){
