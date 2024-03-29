@@ -52,5 +52,4 @@ if(@subdomains){
 }else{
         print "subdomain no found for $domain\n";
 }
-#print colored "--->[finsh]--->\n",'white on_red';
 1;
